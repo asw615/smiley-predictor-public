@@ -2,7 +2,7 @@
 
 == Cross-validation results
 
-@tab-headline-metrics reports per-class PR-AUC (one-vs-rest), the derived not-happy PR-AUC, and precision at the top decile of the not-happy score, with restaurant-clustered bootstrap 95% intervals on the PR-AUC values from 2,000 resamples. @fig-pr-auc-forest plots each smiley class as a separate panel.
+@tab-headline-metrics reports per-class PR-AUC (one-vs-rest), the derived not-happy PR-AUC, and precision at the top decile of the not-happy score, with restaurant-clustered bootstrap 95% intervals on the PR-AUC values from 2,000 resamples. @fig-pr-auc-forest plots each smiley class as a separate subplot.
 
 #let mc(est, lo, hi) = [#est \ #text(size: 11pt)[(#lo, #hi)]]
 
@@ -29,7 +29,7 @@
   caption: [Out-of-fold PR-AUC (per class and derived not-happy), and top-decile precision on the 8,067-inspection dataset, with restaurant-clustered bootstrap 95% CIs.],
 ) <tab-headline-metrics>
 
-Not-happy PR-AUC ranges from 0.149 at the class-frequency baseline to 0.183 for the summary plus LLM flags LR (@tab-headline-metrics, @fig-pr-auc-forest). The two LR models sit within each other's bootstrap intervals on every class column. The XGBoost models sit below both LR models on not-happy PR-AUC at 0.174 and 0.181; all four bootstrap intervals overlap. Top-decile precision ranges from 0.149 at the class-frequency baseline to 0.216 at the summary plus LLM flags LR.
+Not-happy PR-AUC ranges from 0.149 at the class-frequency baseline to 0.183 for the summary plus LLM flags LR (@tab-headline-metrics, @fig-pr-auc-forest). All four fitted models score above the baseline on not-happy PR-AUC, with bootstrap intervals that exclude the baseline value. The two LR models have overlapping bootstrap intervals on every per-class metric. The XGBoost models score below both LR models on not-happy PR-AUC at 0.174 and 0.181, and all four bootstrap intervals overlap. Top-decile precision ranges from 0.149 at the class-frequency baseline to 0.216 at the summary plus LLM flags LR.
 
 #figure(
   image("../figures/fig_pr_auc_forest.pdf", width: 100%),
@@ -38,7 +38,7 @@ Not-happy PR-AUC ranges from 0.149 at the class-frequency baseline to 0.183 for 
 
 == Hygiene flag odds ratios
 
-@tab-per-flag-univariate reports adjusted odds ratios for each of the six hygiene categories across two contrasts, neutral-vs-happy and sad-vs-happy. @fig-per-flag-forest plots both contrasts on a log scale.
+@tab-per-flag-univariate reports adjusted odds ratios from the per-flag univariate logistic regressions for each of the six hygiene categories across two contrasts, neutral-vs-happy and sad-vs-happy. @fig-per-flag-forest plots both contrasts on a log scale.
 
 #figure(
   text(size: 10pt, table(
