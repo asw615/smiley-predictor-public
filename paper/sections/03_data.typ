@@ -1,7 +1,6 @@
 #import "helpers.typ": nv, sm
 
-= Data
-
+#sm(level: 1)[Data]
 We pair the Danish smiley register with Google Maps reviews. Google Maps is one of the most used review platforms for local businesses @brightlocal2026review. Pairing review-platform text with public inspection records has precedent in US and German studies @kang2013whereeat @farronato2025consumerreviews @hering2025hygienecasting, but no Danish counterpart exists.
 
 #nv[The smiley register]

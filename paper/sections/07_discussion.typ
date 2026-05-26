@@ -1,6 +1,6 @@
 #import "helpers.typ": nv, sm
 
-= Discussion
+#nv(level: 1)[Discussion]
 
 Summary review features give a modest ranking lift over the class-frequency baseline. The LLM-extracted hygiene flags add nothing on top of the summary features.
 

@@ -1,4 +1,6 @@
-= Conclusions
+#import "helpers.typ": nv, sm
+
+#sm(level: 1)[Conclusions]
 
 On a dataset of 8,067 Danish-restaurant inspections, three summary features of the Google Maps review window lifted top-decile precision from a class-frequency baseline of 0.149 to 0.201 under restaurant-grouped cross-validation. LLM-extracted hygiene flags added nothing measurable beyond the summary features, and eleven of twelve per-flag odds ratios were consistent with the null.
 

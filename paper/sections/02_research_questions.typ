@@ -1,4 +1,6 @@
-= Research Questions (NV & SM)
+#import "helpers.typ": both
+
+#both(level: 1)[Research Questions]
 
 We ask whether Google Maps reviews available before an inspection let us rank restaurants by the risk of a non-happy outcome at that inspection.
 
