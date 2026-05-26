@@ -1,18 +1,18 @@
 = Introduction
 
-== Foodborne disease and the Danish smiley scheme
+#nv[Foodborne disease and the Danish smiley scheme]
 
 Foodborne disease causes substantial illness and death worldwide. The World Health Organization estimates that contaminated food sickens 600 million people each year and causes 420,000 deaths @who2015foodborne. Norovirus is the leading restaurant-borne pathogen in both the United States and Denmark. Outbreak investigations in both countries identify infected kitchen staff, including healthy carriers, as the most common contributing factor @holst2025contributing @dtu2024zoonoses.
 
 National regulators respond by inspecting food-serving premises on a recurring, risk-tiered schedule @fda2022foodcode @foedevarestyrelsen_bekendtgoerelse. Denmark introduced a national smiley scheme in 2001 along these lines. After each inspection, the establishment receives one of three faces. A happy face marks an inspection with no remarks. A neutral face marks a written instruction to correct a specific breach. A sad face marks more serious enforcement outcomes, including orders, bans, administrative fines, and police referrals @foedevarestyrelsen_findsmiley. The most recent smiley must be posted at the entrance, and the outcomes of the last four visits are kept in an open national register @bavorova2012compliant. Evidence from the Los Angeles food inspection system shows that such schemes affect both diner choices and operator behaviour #cite(<jin2003effect>, form: "prose"). The same paper estimated a roughly 20% drop in food-related illness hospitalisations after introduction, although a later re-analysis using a longer pre-treatment window contests this result @ho2019newevidence.
 
-== The inspection planning gap
+#sm[The inspection planning gap]
 
 Public posting only works if food inspections happen often enough to keep the displayed smiley meaningful. Danish food inspections run on a risk-based schedule set by Fødevarestyrelsen, with restaurants in the default risk tier inspected approximately once a year and higher-risk premises more often @foedevarestyrelsen_bekendtgoerelse @foedevarestyrelsen_kontrolfrekvens. Any non-happy smiley triggers a shorter follow-up interval until the establishment recovers a happy smiley. Outside the regular schedule, a customer can report hygiene problems to Fødevarestyrelsen through its public complaint channel, and such a complaint can trigger an off-schedule inspection @foedevarestyrelsen_klage.
 
 The displayed smiley reflects the last inspection, not the restaurant's current state. The complaint route depends on a diner writing to Fødevarestyrelsen, which most dissatisfied diners do not do. The planner therefore has no way to tell which currently compliant restaurants are most at risk of failing the next inspection.
 
-== Reviews as a hygiene signal
+#nv[Reviews as a hygiene signal]
 
 Online review platforms cover a large share of restaurants in Europe and North America, and Google Maps in particular has been used for nationwide restaurant-level analysis in European settings @starakiewicz2025predicting @hering2025hygienecasting. Most diners who report an illness in an online review never file a corresponding regulatory complaint: in the only published direct comparison we are aware of, only 3% of food-related illness episodes described in Yelp reviews of New York City restaurants had a matching record in the city's complaint system @harrison2014using. Early US work suggested that this missing signal could be recovered from review text. Yelp-based classifiers reported binary accuracy of 82% on a curated subset of 612 Seattle inspections @kang2013whereeat, 78% on 440 Chinese restaurants in San Francisco @schomberg2016supplementing, and over 90% on Kitchener-Waterloo data @wong2016predicting. New York City has run a deployed complaint-screening classifier since 2012 that flags Yelp reviews describing illness symptoms, supporting the identification of ten outbreaks and 8,523 reports @effland2018discovering. In Boston, the tournament of #cite(<glaeser2016crowdsourcing>, form: "prose") produced algorithms that ranked restaurants similarly to inspector picks on held-out data.
 
@@ -20,7 +20,7 @@ Later work has tempered these results. #cite(<altenburger2019yelp>, form: "prose
 
 Outside the US, evidence on Google Maps specifically is thin. #cite(<hering2025hygienecasting>, form: "prose") paired Google Maps reviews with hygiene-incident reports scraped from German federal-state portals and trained an XGBoost classifier on word-frequency and review-engagement features, reporting a macro F1 of 0.87, though the positive class in their test set held only 175 establishments. Across the literature, whether a review-derived signal is strong enough for an inspector to act on depends on the city, the prediction target, and how the label is constructed. The high-accuracy numbers from the early US studies do not survive full-register replication @altenburger2019yelp.
 
-== This work
+#sm[This work]
 
 The Danish setting allows a national-scale test of these questions. The smiley register covers the full population of Danish food establishments rather than a curated subset, so a model can be trained and evaluated against the same outcome the inspector records. This puts the design closer in structure to Altenburger and Ho's full-register Seattle replication @altenburger2019yelp than to the smaller curated datasets behind the earlier US accuracy numbers @kang2013whereeat @schomberg2016supplementing @wong2016predicting. Google Maps and the smiley register can be linked using only public data.
 

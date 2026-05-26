@@ -1,10 +1,10 @@
 = Method
 
-== Target classes <sec-outcome>
+#sm[Target classes] <sec-outcome>
 
 We drop the 19 grade-3 rows, leaving 8,067 inspections at 85.1% happy, 12.9% neutral, and 2.0% sad. When a retained inspection's immediate predecessor was a dropped grade-3 row, we re-anchor its review window to the next retained inspection preceding it in the smiley register snapshot.
 
-== Features
+#nv[Features]
 
 Each between-inspection review window is summarised by three features (@tab-summary-features). The mean star rating is missing for empty windows. For the logistic regression, missing values are imputed at the training-fold mean before standardisation. XGBoost handles missing values through its sparsity-aware splits @chen2016xgboost.
 
@@ -39,7 +39,7 @@ We adapt a six-category hygiene schema from the keyword lists of #cite(<schomber
 
 The hygiene schema gives one binary indicator per window per category. An indicator is positive when at least one in-window review carries that category label, and zero otherwise. Windows with no scored reviews receive structural zeros.
 
-=== Per-review hygiene labelling <sec-annotation>
+#sm(level: 3)[Per-review hygiene labelling] <sec-annotation>
 
 We label each scraped review against the six hygiene categories. Reviews rated three stars or fewer are passed to Google's Gemma 4B @gemma2024, run locally with Ollama @ollama2024 with structured output constrained to a JSON schema that returns one boolean per category. The prompt is Danish, includes a small set of few-shot examples @brown2020fewshot, and instructs the model to ignore complaints about service, price, taste, or waiting time. The full prompt is in @prompt-gemma-4. We do not pass four- and five-star reviews to the model, and they receive all-negative hygiene flags.
 
@@ -47,7 +47,7 @@ To reduce the risk of skipping high-rated reviews, we pass a stratified sample o
 
 To check that the model labels are not arbitrary, we hand-labelled 200 reviews against the same six categories and compared the human labels to the model output. Per-category Cohen's K ranged from 0.46 to 0.92 (@cohen-k).
 
-== Models
+#nv[Models]
 
 A class-frequency baseline predicts the training-fold class proportions for every test row. This establishes the floor any text-derived feature set has to beat.
 
@@ -57,7 +57,7 @@ We fit the LR with a multinomial softmax loss and an L2 penalty at C = 1, using 
 
 Hyperparameters are pre-specified rather than tuned. Class imbalance is handled by neither weighting nor resampling, and no post-hoc calibration is applied. Tuning, weighting, or calibration would affect the four models unevenly, which would make comparison between the models difficult. 
 
-== Evaluation
+#sm[Evaluation]
 
 We split the dataset into five folds, grouped by restaurant so that all inspections of a given place fall in the same fold, and stratified on the three-class target @sogaard2021random @pedregosa2011scikit. All metrics are computed on the pooled out-of-fold predictions.
 
@@ -67,7 +67,7 @@ Confidence intervals come from 2,000 bootstrap resamples at the restaurant level
 
 == Sensitivity analyses
 
-=== Per-flag adjusted odds ratios
+#nv(level: 3)[Per-flag adjusted odds ratios]
 
 For each hygiene category, we fit a separate pairwise logistic regression to estimate whether a positive flag for that category in a window raises the odds of a neutral or sad inspection over a happy one. We control for log(1 + scored review count), because a flag is more likely to be positive when more reviews were scored. This gives twelve odds ratios, one for each of the six categories times the two non-happy classes. Confidence intervals come from the same restaurant-clustered bootstrap used for the cross-validated metrics. The twelve tests are not corrected for multiple comparisons, so we report the odds ratios as suggestive rather than confirmed findings.
 

@@ -1,6 +1,6 @@
 = Results
 
-== Cross-validation results
+#sm[Cross-validation results]
 
 @tab-headline-metrics reports per-class PR-AUC (one-vs-rest), the derived not-happy PR-AUC, and precision at the top decile of the not-happy score, with restaurant-clustered bootstrap 95% intervals on the PR-AUC values from 2,000 resamples. @fig-pr-auc-forest plots each smiley class as a separate subplot.
 
@@ -36,7 +36,7 @@ Not-happy PR-AUC ranges from 0.149 at the class-frequency baseline to 0.183 for 
   caption: [One-vs-rest PR-AUC for each smiley class, with restaurant-clustered bootstrap 95% intervals. The dotted line marks the class-frequency baseline.],
 ) <fig-pr-auc-forest>
 
-== Hygiene flag odds ratios
+#nv[Hygiene flag odds ratios]
 
 @tab-per-flag-univariate reports adjusted odds ratios from the per-flag univariate logistic regressions for each of the six hygiene categories across two contrasts, neutral-vs-happy and sad-vs-happy. @fig-per-flag-forest plots both contrasts on a log scale.
 

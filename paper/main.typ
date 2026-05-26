@@ -59,6 +59,12 @@
 #show heading.where(level: 2): it => block(above: 1.6em, below: 0.75em, it)
 #show heading.where(level: 3): it => block(above: 1.6em, below: 0.75em, it)
 
+// Author-attribution helpers for sub-headings (exam submission).
+// Append (NV) or (SM) to the heading text. Use as #nv[Title] for a level-2 heading,
+// or #sm(level: 3)[Title] for a level-3 heading. Labels go after the closing bracket.
+#let nv(body, level: 2) = heading(level: level)[#body (NV)]
+#let sm(body, level: 2) = heading(level: level)[#body (SM)]
+
 // Captions (tables and figures): left-aligned, italic, 10pt
 #show figure: set figure(gap: 0.8em)
 #show figure.caption: it => align(left, text(size: 10pt, style: "italic", it))
