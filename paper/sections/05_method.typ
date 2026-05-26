@@ -2,7 +2,7 @@
 
 == Target classes <sec-outcome>
 
-We drop the 19 grade-3 rows, leaving 8,067 inspections at 85.1% happy, 12.9% neutral, and 2.0% sad. When a retained inspection's immediate predecessor was a dropped grade-3 row, we re-anchor its review window to the next retained inspection preceding it in the Smiley register snapshot.
+We drop the 19 grade-3 rows, leaving 8,067 inspections at 85.1% happy, 12.9% neutral, and 2.0% sad. When a retained inspection's immediate predecessor was a dropped grade-3 row, we re-anchor its review window to the next retained inspection preceding it in the smiley register snapshot.
 
 == Features
 
@@ -53,7 +53,7 @@ A class-frequency baseline predicts the training-fold class proportions for ever
 
 The main comparison is a 2x2 design over feature sets and classifiers. The two feature sets are the three summary features alone, and the summary features combined with the six hygiene flags. The classifiers are multinomial logistic regression (LR) and XGBoost @chen2016xgboost. Each of the four combinations is fit per fold and pooled out-of-fold for evaluation.
 
-We fit the LR with a multinomial softmax loss and an L2 penalty at C = 1, using scikit-learn @pedregosa2011scikit. The XGBoost classifiers are pre-specified at 400 trees, depth 5, learning rate 0.05, row and column subsample 0.8, and the histogram tree method, and produce three-class softmax probabilities.
+We fit the LR with a multinomial softmax loss and an L2 penalty at C = 1, using scikit-learn @pedregosa2011scikit. The XGBoost classifiers are pre-specified at 400 trees, depth 5, learning rate 0.05, row and column subsample 0.8, and the histogram tree method. They produce three-class softmax probabilities.
 
 Hyperparameters are pre-specified rather than tuned. Class imbalance is handled by neither weighting nor resampling, and no post-hoc calibration is applied. Tuning, weighting, or calibration would affect the four models unevenly, which would make comparison between the models difficult. 
 
