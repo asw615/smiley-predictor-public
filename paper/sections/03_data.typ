@@ -11,3 +11,7 @@ Fødevarestyrelsen publishes the register as a downloadable Excel snapshot at fi
 == Google Maps reviews
 
 Each Google Maps review has a star rating from 1 to 5, a free-text body and a timestamp. Google does not expose a public bulk export of reviews, so the platform has to be queried per-place.
+
+== Ethics
+
+Building the panel meant querying publicly visible Google reviews one place at a time, since no Danish dataset links review text to inspection outcomes. The reviews are already public, and we collected only the fields the research question needs (star rating, review text, and timestamp). Google reviews contain personal data, such as reviewer names and freely written opinions, so we follow the data-minimisation principle of the General Data Protection Regulation. We keep the scraped corpus on local storage and publish only our code and aggregate outputs, and none of the raw scraped review data is uploaded to the public repository.
