@@ -1,4 +1,4 @@
-= Research Questions
+= Research Questions (NV & SM)
 
 We ask whether Google Maps reviews available before an inspection let us rank restaurants by the risk of a non-happy outcome at that inspection.
 

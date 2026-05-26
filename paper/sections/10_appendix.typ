@@ -59,9 +59,7 @@ Danish quote (empty when no signal fires).
     - evidence: kort tekstbid fra anmeldelsen; tom ved intet signal.
     ```
   ]],
-  caption: [Danish system prompt for the Gemma 4B hygiene classifier
-  (@listing-gemma-prompt). Only the six category booleans are used as
-  features in the downstream model.],
+  caption: [Danish system prompt for the Gemma 4B hygiene classifier.],
   kind: "listing",
   supplement: [Listing],
 ) <listing-gemma-prompt>
@@ -105,7 +103,7 @@ Cohen's K scores for the different hygiene flags from Gemma 4B compared to a 200
     [staff hygiene], [0.66],
     [illness after eating], [0.92],
   ),
-  caption: [Per-category flag counts from a Gemma 4B inspection of 1,000 four- and five-star reviews. Aggregate flag rate 9/1,000 = 0.9%, treated as the miss rate of the default-negative heuristic.],
+  caption: [Per-category Cohen's K between Gemma 4B flags and a 200-review hand-labelled set. Pest/vermin is undefined because the hand-labelled set contained no positive cases in that category.],
 ) <tab-cohen-k>
 
 
