@@ -1,4 +1,4 @@
-#import "../helpers.typ": nv, sm
+#import "helpers.typ": nv, sm
 
 = Introduction
 

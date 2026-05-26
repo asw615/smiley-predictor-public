@@ -62,7 +62,7 @@
 // Author-attribution helpers for sub-headings (exam submission).
 // Defined in helpers.typ so the section files (evaluated as their own modules
 // via #include) can import them too.
-#import "helpers.typ": nv, sm
+#import "sections/helpers.typ": nv, sm
 
 // Captions (tables and figures): left-aligned, italic, 10pt
 #show figure: set figure(gap: 0.8em)
