@@ -29,7 +29,7 @@
   caption: [Out-of-fold PR-AUC (per class and derived not-happy), and top-decile precision on the 8,067-inspection dataset, with restaurant-clustered bootstrap 95% CIs.],
 ) <tab-headline-metrics>
 
-Not-happy PR-AUC ranges from 0.149 at the class-frequency baseline to 0.183 for the summary plus LLM flags LR (@tab-headline-metrics, @fig-pr-auc-forest). The two LR configurations sit within each other's bootstrap intervals on every class column. The XGBoost configurations sit below both LR configurations on not-happy PR-AUC at 0.174 and 0.181; all four bootstrap intervals overlap. Top-decile precision ranges from 0.149 at the class-frequency baseline to 0.216 at the summary plus LLM flags LR.
+Not-happy PR-AUC ranges from 0.149 at the class-frequency baseline to 0.183 for the summary plus LLM flags LR (@tab-headline-metrics, @fig-pr-auc-forest). The two LR models sit within each other's bootstrap intervals on every class column. The XGBoost models sit below both LR models on not-happy PR-AUC at 0.174 and 0.181; all four bootstrap intervals overlap. Top-decile precision ranges from 0.149 at the class-frequency baseline to 0.216 at the summary plus LLM flags LR.
 
 #figure(
   image("../figures/fig_pr_auc_forest.pdf", width: 100%),

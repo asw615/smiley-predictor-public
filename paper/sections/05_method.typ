@@ -41,17 +41,17 @@ The hygiene schema gives one binary indicator per window per category. An indica
 
 === Per-review hygiene labelling <sec-annotation>
 
-We label each scraped review against the six hygiene categories. Reviews rated three stars or fewer are passed to Google's Gemma 4B @gemma2024, run locally with Ollama @ollama2024 under a JSON-schema response that returns one boolean per category. The prompt is Danish, includes a small set of few-shot examples @brown2020fewshot, and instructs the model to ignore complaints about service, price, taste, or waiting time. The full prompt can be found in @prompt-gemma-4. Reviews rated four or five stars bypass the model and receive all-negative labels. To figure out the cost of skipping high-rated reviews, we passed a stratified sample of 1,000 of them (217 four-star, 783 five-star) through the same Gemma 4B classifier. It flagged 9 (0.9%), with the per-category breakdown in @sec-high-star-inspection. This is an upper bound on the share of high-rated reviews the classifier would have marked had we run it on the full corpus
+We label each scraped review against the six hygiene categories. Reviews rated three stars or fewer are passed to Google's Gemma 4B @gemma2024, run locally with Ollama @ollama2024 under a JSON-schema response that returns one boolean per category. The prompt is Danish, includes a small set of few-shot examples @brown2020fewshot, and instructs the model to ignore complaints about service, price, taste, or waiting time. The full prompt can be found in @prompt-gemma-4. Reviews rated four or five stars are ignored by the model and receive all-negative hygiene flags. To figure out the risk of skipping high-rated reviews, we passed a stratified sample of 1,000 of them (217 four-star, 783 five-star) through the same Gemma 4B classifier. It flagged 9 (0.09%), with the per-category breakdown in @sec-high-star-inspection. This is an upper bound on the share of high-rated reviews the classifier would have marked had we run it on the full corpus
 
 == Models
 
-A class-frequency baseline predicts the training-fold class proportions for every test row. We also fit a two-feature logistic regression on mean star rating and log(1 + review count), as a consumer-rating reference. Both establish the floor that any text-derived feature set has to clear.
+A class-frequency baseline predicts the training-fold class proportions for every test row. We also fit a two-feature logistic regression on mean star rating and log(1 + review count), as a consumer-rating reference. Both establish the floor that any text-derived feature set has to beat.
 
-The main comparison is a 2×2 design over feature sets and classifiers. We construct two feature sets where the first is the three summary features alone and the second set is the summary features combined with the six hygiene flags. The classifiers are multinomial logistic regression (LR) and XGBoost @chen2016xgboost. Each of the four combinations is fit per fold and pooled out-of-fold for evaluation.
+The main comparison is a 2×2 design over the feature sets and classifiers. We construct two feature sets where the first is the three summary features alone and the second set is the summary features combined with the six hygiene flags. The classifiers are multinomial logistic regression (LR) and XGBoost @chen2016xgboost. Each of the four combinations is fit per fold and pooled out-of-fold for evaluation.
 
 We fit the LR with a multinomial softmax loss and an L2 penalty at the default C = 1, using scikit-learn @pedregosa2011scikit. Missing mean ratings are imputed at the training-fold mean, then all features are standardised. The XGBoost classifiers are not tuned. They run at default settings (400 trees, depth 5, learning rate 0.05, row and column subsample 0.8, histogram tree method) and produce three-class softmax probabilities.
 
-Hyperparameters are pre-specified rather than tuned. Class imbalance is handled by neither weighting nor resampling, and no post-hoc calibration is applied. Tuning, weighting, or calibration would affect the four configurations unevenly, obscuring the feature-family comparison.
+Hyperparameters are pre-specified rather than tuned. Class imbalance is handled by neither weighting nor resampling, and no post-hoc calibration is applied. Tuning, weighting, or calibration would affect the four models unevenly, which would make comparison between the models difficult. 
 
 == Evaluation
 
@@ -59,7 +59,7 @@ We partition the panel into five folds, grouped by restaurant so that all inspec
 
 At a 14.9% not-happy rate, a model can achieve high ROC-AUC while placing few non-happy inspections near the top of the predicted ranking, so we use PR-AUC as the primary metric @saito2015precision. We report it per class in a one-vs-rest framing, and as a not-happy score defined as one minus the predicted happy probability. We also report precision at the top decile of that ranking.
 
-Confidence intervals come from 2,000 bootstrap resamples at the restaurant level. Draws that collapse to a single class are discarded. Top-decile precision is reported without an interval.
+Confidence intervals come from 2,000 bootstrap resamples at the restaurant level. Resamples that contain only one class are discarded, since PR-AUC is undefined in that case. Top-decile precision is reported as a point estimate.
 
 == Sensitivity analyses
 
