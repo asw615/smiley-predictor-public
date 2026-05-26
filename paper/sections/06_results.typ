@@ -4,7 +4,7 @@
 
 #sm[Cross-validation results]
 
-@tab-headline-metrics reports per-class PR-AUC (one-vs-rest), the derived not-happy PR-AUC, and precision at the top decile of the not-happy score, with restaurant-clustered bootstrap 95% intervals on the PR-AUC values from 2,000 resamples. @fig-pr-auc-forest plots each smiley class as a separate subplot.
+@tab-headline-metrics reports per-class PR-AUC (one-vs-rest), the derived non-happy PR-AUC, and precision at the top decile of the non-happy score, with restaurant-clustered bootstrap 95% intervals on the PR-AUC values from 2,000 resamples. @fig-pr-auc-forest plots each smiley class as a separate subplot.
 
 #let mc(est, lo, hi) = [#est \ #text(size: 11pt)[(#lo, #hi)]]
 
@@ -19,7 +19,7 @@
       [#strong[Happy]],
       [#strong[Neutral]],
       [#strong[Sad]],
-      [#strong[Not-happy]],
+      [#strong[Non-happy]],
       [#strong[P\@10]],
     ),
     [Class-frequency baseline],    mc("0.851", "0.841", "0.860"), mc("0.129", "0.120", "0.139"), mc("0.020", "0.016", "0.024"), mc("0.149", "0.140", "0.159"), [0.149],
@@ -28,10 +28,10 @@
     [Summary + LLM flags, LR],     mc("0.875", "0.866", "0.886"), mc("0.162", "0.150", "0.177"), mc("0.027", "0.021", "0.036"), mc("0.183", "0.169", "0.199"), [0.216],
     [Summary + LLM flags, XGB],    mc("0.864", "0.854", "0.874"), mc("0.156", "0.143", "0.172"), mc("0.021", "0.017", "0.029"), mc("0.181", "0.167", "0.198"), [0.203],
   )],
-  caption: [Out-of-fold PR-AUC (per class and derived not-happy), and top-decile precision on the 8,067-inspection dataset, with restaurant-clustered bootstrap 95% CIs.],
+  caption: [Out-of-fold PR-AUC (per class and derived non-happy), and top-decile precision on the 8,067-inspection dataset, with restaurant-clustered bootstrap 95% CIs.],
 ) <tab-headline-metrics>
 
-Not-happy PR-AUC ranges from 0.149 at the class-frequency baseline to 0.183 for the summary plus LLM flags LR (@tab-headline-metrics, @fig-pr-auc-forest). All four fitted models score above the baseline on not-happy PR-AUC, with bootstrap intervals that exclude the baseline value. The two LR models have overlapping bootstrap intervals on every per-class metric. The XGBoost models score below both LR models on not-happy PR-AUC at 0.174 and 0.181, and all four bootstrap intervals overlap. Top-decile precision ranges from 0.149 at the class-frequency baseline to 0.216 at the summary plus LLM flags LR.
+Non-happy PR-AUC ranges from 0.149 at the class-frequency baseline to 0.183 for the summary plus LLM flags LR (@tab-headline-metrics, @fig-pr-auc-forest). All four fitted models score above the baseline on non-happy PR-AUC, with bootstrap intervals that exclude the baseline value. The two LR models have overlapping bootstrap intervals on every per-class metric. The XGBoost models score below both LR models on non-happy PR-AUC at 0.174 and 0.181, and all four bootstrap intervals overlap. Top-decile precision ranges from 0.149 at the class-frequency baseline to 0.216 at the summary plus LLM flags LR.
 
 #figure(
   image("../figures/fig_pr_auc_forest.pdf", width: 100%),

@@ -15,12 +15,12 @@
   width: 100%,
 )[
 *Key findings (NV)* 
-- We tested whether Google Maps reviews of Danish restaurants give early warning that the next smiley inspection will not return a happy face. 
+- We tested whether Google Maps reviews of Danish restaurants give early warning that the next smiley inspection will not return a happy smiley. 
 - Simple summaries of the reviews gave a modest lift in ranking restaurants by risk. A second step that read the review text for hygiene mentions added no further information.
 - The model is not suitable for inspection planning based on this work. We outline what would change that.
 ]
 
-*Background (SM).* Around 3% of routine smiley inspections return a non-happy outcome. We asked whether the reviews that customers leave on Google Maps could give early warning that the next inspection will not return a happy face, as one possible input to risk-based scheduling rather than a replacement for the current routine.
+*Background (SM).* Around 3% of routine smiley inspections return a non-happy outcome. We asked whether the reviews that customers leave on Google Maps could give early warning that the next inspection will not return a happy smiley, as one possible input to risk-based scheduling rather than a replacement for the current routine.
 
 *What we did (NV).* We linked two public sources, Fødevarestyrelsen's smiley register and Google Maps reviews gathered from the public pages of around 3,000 Danish restaurants. For every pair of consecutive inspections, we summarised the reviews written in between (count, mean star rating, share of one- and two-star reviews) and asked a statistical model to predict whether the next inspection would return a non-happy outcome. A second step used a large language model to check each lower-rated review for mentions of any of six hygiene problems, including pests, food-safety issues, and visible dirt. We then tested whether those mentions improved the predictions.
 
@@ -173,7 +173,7 @@
   *What this tells you (NV)* 
   - Volume, mean rating, and low-rating share contain weak but non-zero information about smiley risk in our data.
   - Reading review text for hygiene categories added nothing on top of those simple summaries under our setup. 
-  - The 15% non-happy rate in our sample is well above the 3% population rate, so the numbers here are not what you would see if the model were run on the full register today.
+  - Our sample has a 15% non-happy rate, against around 3% across the full register, so the one-in-five number above would be lower in practice.
   ],
   [
     *What it does not tell you (SM)*

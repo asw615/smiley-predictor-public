@@ -4,6 +4,8 @@
   title: "Predicting Danish Food-Safety Inspection Outcomes from Google Maps Reviews",
   author: ("Søren Søndergaard Meiner", "Niels Værbak"),
 )
+// bolds every table's headers
+#show table.cell.where(y: 0): strong
 
 // AU-style running header. Logo pulled out into the left margin, authors in the middle,
 // course info on the right.

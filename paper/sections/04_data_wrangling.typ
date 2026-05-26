@@ -12,7 +12,7 @@ We restrict the public snapshot from the smiley register @foedevarestyrelsen_smi
 
 #nv(level: 3)[Sampling strategy]
 
-We use case-control sampling on the most recent inspection outcome. Every restaurant whose most recent smiley differs from 1 (the happy grade) is included, giving 405 cases and exhausting the non-happy most-recent class in the eligible snapshot. The remaining 5,595 sample slots are filled by uniform random selection from the eligible snapshot, without geographic stratification. The case-control design over-samples non-happy restaurants relative to the underlying population, and the resulting dataset-level non-happy share is therefore higher than the register-level rate (see Discussion).
+We stratify the sample on the most recent inspection outcome. Every restaurant whose most recent smiley differs from 1 (the happy grade) is included, giving 405 non-happy restaurants and exhausting the non-happy most-recent class in the eligible snapshot. The remaining 5,595 slots are filled by uniform random selection from the eligible snapshot, without geographic stratification. Because we kept every non-happy restaurant instead of sampling proportionally, the dataset's non-happy share is higher than the register-level rate.
 
 The 6,000-restaurant target was set by a one-day scraping ceiling. Pilot runs gave a per-place query rate of around 16 seconds at the median, and we anticipated roughly half of the 6,000 candidates dropping out at the food-service filter, leaving a working budget of about 3,000 scraped places.
 
@@ -28,7 +28,7 @@ We match each of the 6,000 sampled restaurants to a Google Maps place by queryin
 
 #sm(level: 3)[Review scraping]
 
-We pull reviews from each retained place by calling the same internal Remote Procedure Call (RPC) endpoint that the Google Maps front-end uses when a user scrolls the review pane. We issue the calls with headless Chromium driven by Playwright @playwright2026, which manages the session cookies and consent state Google attaches to the request. The RPC returns reviews in reverse chronological order. Of the 3,097 retained places, 100 return no Google reviews at all, and a further 40 return reviews but none of them fall inside any of their inspection windows, so they cannot contribute features. The remaining 2,957 places each contribute at least one inspection row to the dataset.
+We pull reviews from each retained place by calling the same internal Remote Procedure Call (RPC) endpoint that the Google Maps front-end uses when a user scrolls the review pane. We issue the calls with headless Chromium driven by Playwright @playwright2026, which manages the session cookies and consent state Google attaches to the request. The RPC returns the newest reviews first. Of the 3,097 retained places, 100 return no Google reviews at all, and a further 40 return reviews, but none of those reviews fall inside any of their inspection windows, so they cannot contribute features. The remaining 2,957 places each contribute at least one inspection row to the dataset.
 
 #nv(level: 3)[Language handling]
 

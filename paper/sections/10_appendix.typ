@@ -20,12 +20,7 @@ The keyword filter described in the Google Maps data step of Data Wrangling matc
 
 == The prompt for classification using Gemma 4B <prompt-gemma-4>
 
-Each review rated three stars or fewer is sent to a local Gemma 4B model
-(`gemma4:e4b` via Ollama) in a single call. A strict JSON Schema
-constrains the reply to eight required fields: six per-category
-booleans, a seventh `hygiene_signal` which is set to true when any of the six fires, a
-`confidence` between 0 and 1, and an `evidence` field carrying a short
-Danish quote (empty when no signal fires).
+Each review of three stars or fewer is sent to Gemma 4B (gemma4:e4b via Ollama), which returns six category booleans, a summary boolean true when any of the six is.
 
 #figure(
   [#[
@@ -64,8 +59,7 @@ Danish quote (empty when no signal fires).
   supplement: [Listing],
 ) <listing-gemma-prompt>
 
-Every call appends fourteen fixed Danish few-shot examples: one positive
-per hygiene category where possible and up to four negatives.
+
 
 
 == Inspection of skipped 4- and 5-star reviews <sec-high-star-inspection>
