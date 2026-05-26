@@ -1,3 +1,5 @@
+#import "../helpers.typ": nv, sm
+
 = Method
 
 #sm[Target classes] <sec-outcome>

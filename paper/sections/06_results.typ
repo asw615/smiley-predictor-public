@@ -1,3 +1,5 @@
+#import "../helpers.typ": nv, sm
+
 = Results
 
 #sm[Cross-validation results]

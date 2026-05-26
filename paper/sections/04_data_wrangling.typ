@@ -1,3 +1,5 @@
+#import "../helpers.typ": nv, sm
+
 = Data Wrangling
 
 The smiley register and Google Maps were not built for our task @foedevarestyrelsen_smileystatistik. The register lists everything from restaurants to grocers, bakers, and canteens, with no single column that cleanly separates the types. Google sometimes returns the wrong place when a name is shared across many locations, as happens with chains and franchises, and exhaustive scraping of all restaurants is beyond our quota.

@@ -1,3 +1,5 @@
+#import "../helpers.typ": nv, sm
+
 = Introduction
 
 #nv[Foodborne disease and the Danish smiley scheme]
