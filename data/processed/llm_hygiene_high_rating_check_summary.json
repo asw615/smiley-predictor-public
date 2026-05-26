@@ -1,0 +1,17 @@
+{
+  "model": "gemma4:e4b",
+  "sample_size_requested": 500,
+  "n_scored": 1000,
+  "n_flagged": 9,
+  "flag_rate": 0.009,
+  "per_category_counts": {
+    "pest_or_vermin": 0,
+    "foreign_object_in_food": 1,
+    "food_safety_concern": 3,
+    "visible_dirtness": 2,
+    "staff_hygiene": 3,
+    "illness_after_eating": 0
+  },
+  "sample_seed": 20260519,
+  "in_scope_only": true
+}

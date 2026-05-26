@@ -1,0 +1,2 @@
+google-maps-scraper==0.1.2
+playwright==1.58.0

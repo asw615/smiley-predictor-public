@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+.venv-*/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+
+.claude/
+CLAUDE.local.md
+AGENTS.local.md
+.cursor/
+.cursorrules
+.aider*
+.continue/
+.codeium/
+.windsurf/
+.copilot/
+.github/copilot-*
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+
+# Local env / secrets
+.env
+.env.*
+.envrc
+
+# Office temp / lock files
+~$*
+
+# Local backups
+*.bak
+*.bak_*
+*.backup
+
+# Project: large generated artifacts. Source data (data/raw/, data/processed/,
+# data/matching/) and small operational logs (session, batch status, match
+# input) stay in git for reproducibility. Big downstream products (scraped
+# reviews, smiley-window CSVs, embeddings, feature tables, trained models, and
+# the place-resolution JSON cache) do not.
+data/features/
+data/models/
+data/reviews/*.csv
+data/logs/*.json
+data/processed/google_reviews_full_6k_with_llm_hygiene.csv
+# Embedding side-track artefacts (regenerable; review_embeddings.parquet ≈ 440 MB,
+# window_embeddings.parquet ≈ 100 MB). Metrics JSON and OOF predictions are small
+# and stay in git.
+data/processed/review_embeddings.parquet
+data/processed/review_embeddings_chunks/
+data/processed/window_embeddings.parquet
+archive/embeddings/data/review_embeddings.parquet
+archive/embeddings/data/window_embeddings.parquet
+
+# Typst compiled output
+paper/*.pdf
+paper/refs_lit_review.bib
+
+# Reviewer PII (names, profile URLs) — keep local, never publish
+data/processed/llm_hygiene_review_predictions.csv
+data/processed/llm_hygiene_high_rating_check_predictions.csv

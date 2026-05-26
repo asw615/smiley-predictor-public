@@ -1,0 +1,166 @@
+{
+  "overall": {
+    "happy_share": 0.8508739308293046,
+    "neutral_share": 0.12916821618941365,
+    "sad_share": 0.019957852981281766,
+    "n_total": 8067
+  },
+  "flags": [
+    {
+      "flag": "pest_or_vermin",
+      "n_windows_flagged": 120,
+      "neutral_rate_flagged": 0.15,
+      "sad_rate_flagged": 0.008333333333333333,
+      "contrasts": {
+        "neutral": {
+          "or_adjusted": 0.7891379373930567,
+          "or_ci95": [
+            0.4643501154942119,
+            1.2103924083879651
+          ],
+          "n_in_contrast": 7906,
+          "n_positive_in_contrast": 1042
+        },
+        "sad": {
+          "or_adjusted": 0.9841022935765001,
+          "or_ci95": [
+            0.4593633964657549,
+            2.0187992774221417
+          ],
+          "n_in_contrast": 7025,
+          "n_positive_in_contrast": 161
+        }
+      }
+    },
+    {
+      "flag": "foreign_object_in_food",
+      "n_windows_flagged": 183,
+      "neutral_rate_flagged": 0.20765027322404372,
+      "sad_rate_flagged": 0.01092896174863388,
+      "contrasts": {
+        "neutral": {
+          "or_adjusted": 1.2143758443935289,
+          "or_ci95": [
+            0.8085460716784816,
+            1.7381752402583275
+          ],
+          "n_in_contrast": 7906,
+          "n_positive_in_contrast": 1042
+        },
+        "sad": {
+          "or_adjusted": 1.0061781972301513,
+          "or_ci95": [
+            0.4078407123536548,
+            2.392922455826407
+          ],
+          "n_in_contrast": 7025,
+          "n_positive_in_contrast": 161
+        }
+      }
+    },
+    {
+      "flag": "food_safety_concern",
+      "n_windows_flagged": 1247,
+      "neutral_rate_flagged": 0.1740176423416199,
+      "sad_rate_flagged": 0.019246190858059342,
+      "contrasts": {
+        "neutral": {
+          "or_adjusted": 1.062780984681518,
+          "or_ci95": [
+            0.8623593686695188,
+            1.2950017020558888
+          ],
+          "n_in_contrast": 7906,
+          "n_positive_in_contrast": 1042
+        },
+        "sad": {
+          "or_adjusted": 2.3226404607821656,
+          "or_ci95": [
+            1.2410579978446736,
+            4.250742050534487
+          ],
+          "n_in_contrast": 7025,
+          "n_positive_in_contrast": 161
+        }
+      }
+    },
+    {
+      "flag": "visible_dirtness",
+      "n_windows_flagged": 428,
+      "neutral_rate_flagged": 0.18457943925233644,
+      "sad_rate_flagged": 0.016355140186915886,
+      "contrasts": {
+        "neutral": {
+          "or_adjusted": 1.024245548568897,
+          "or_ci95": [
+            0.7524496269579629,
+            1.3552699885094022
+          ],
+          "n_in_contrast": 7906,
+          "n_positive_in_contrast": 1042
+        },
+        "sad": {
+          "or_adjusted": 1.622142670679449,
+          "or_ci95": [
+            0.6527751324115647,
+            3.1971663089509987
+          ],
+          "n_in_contrast": 7025,
+          "n_positive_in_contrast": 161
+        }
+      }
+    },
+    {
+      "flag": "staff_hygiene",
+      "n_windows_flagged": 184,
+      "neutral_rate_flagged": 0.21739130434782608,
+      "sad_rate_flagged": 0.016304347826086956,
+      "contrasts": {
+        "neutral": {
+          "or_adjusted": 1.318936787771696,
+          "or_ci95": [
+            0.8966862237912344,
+            1.8603625340049932
+          ],
+          "n_in_contrast": 7906,
+          "n_positive_in_contrast": 1042
+        },
+        "sad": {
+          "or_adjusted": 1.3790391114223357,
+          "or_ci95": [
+            0.43235421295711074,
+            3.102857010826332
+          ],
+          "n_in_contrast": 7025,
+          "n_positive_in_contrast": 161
+        }
+      }
+    },
+    {
+      "flag": "illness_after_eating",
+      "n_windows_flagged": 299,
+      "neutral_rate_flagged": 0.19732441471571907,
+      "sad_rate_flagged": 0.016722408026755852,
+      "contrasts": {
+        "neutral": {
+          "or_adjusted": 1.190219840640914,
+          "or_ci95": [
+            0.861028919020409,
+            1.6210766505249203
+          ],
+          "n_in_contrast": 7906,
+          "n_positive_in_contrast": 1042
+        },
+        "sad": {
+          "or_adjusted": 1.470900635291216,
+          "or_ci95": [
+            0.5591052630266389,
+            2.9214950389583705
+          ],
+          "n_in_contrast": 7025,
+          "n_positive_in_contrast": 161
+        }
+      }
+    }
+  ]
+}
