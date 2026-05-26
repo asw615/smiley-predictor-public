@@ -16,7 +16,7 @@
 )[
 *Key findings* 
 - We tested whether Google Maps reviews of Danish restaurants give early warning that the next smiley inspection will not return a happy face. 
-- Simple summaries of the reviews gave a modest lift in ranking restaurants by risk. A second step that read the review text for hygiene mentions added nothing on top. 
+- Simple summaries of the reviews gave a modest lift in ranking restaurants by risk. A second step that read the review text for hygiene mentions added no further information.
 - The model is not suitable for inspection planning based on this work. We outline what would change that.
 ]
 
@@ -144,7 +144,7 @@
     )
     #wf-converge()
     #wf-step[
-      Match each review to the inspection that followed it
+      For each inspection, gather the reviews written since the previous one
     ]
     #wf-arrow
     #wf-step[
@@ -178,7 +178,7 @@
   [
     *What it does not tell you*
     - That the model is ready to support inspection planning. It is not.
-    - That review text is uninformative in general. Our text reading used a six-category scheme, and a different setup might do better.
+    - That review text is uninformative in general. A different reading scheme might do better.
     - That the lift would hold up on a register that includes the full inspection history per restaurant rather than only the four most recent grades.
   ]
 )
